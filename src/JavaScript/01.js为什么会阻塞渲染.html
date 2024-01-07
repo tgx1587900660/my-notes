@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <button>click me</button>
+    <span>虽然这里变更了div 的内容，但页面并没有立即变化，因为【渲染】也是一个任务，会被放到【消息队列】中等待js代码执行完毕，才处理</span>
+
+    <div>I will change after 3000ms</div>
+  </body>
+  <script>
+    const btn = document.querySelector('button')
+    const div = document.querySelector('div')
+
+    btn.addEventListener('click', function () {
+      console.log('click')
+
+      div.innerHTML = `I am changed --- Date.now():${Date.now()}` // 这句代码会开启一个 【渲染任务】，放入到 消息队列中，等待执行
+      delay(3000)
+    })
+
+    // 延时函数
+    function delay(ms) {
+      const start = Date.now()
+      while (Date.now() - start < ms) {}
+    }
+  </script>
+</html>

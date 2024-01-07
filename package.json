@@ -1,0 +1,17 @@
+{
+  "name": "10.study-demo",
+  "version": "1.0.0",
+  "description": "Here are some demo source codes for front-end skills learning.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "demo",
+    "study",
+    "front-end"
+  ],
+  "author": "tangganxiao",
+  "license": "ISC"
+}
