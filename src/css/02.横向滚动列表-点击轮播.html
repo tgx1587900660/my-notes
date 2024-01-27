@@ -50,6 +50,7 @@
         /* 只要横向滚动条 */
         overflow-x: scroll;
         gap: var(--gap);
+        scroll-behavior: smooth;
       }
 
       /* 去除滚动条 */
@@ -76,7 +77,10 @@
   <body>
     <div class="main">
       <pre>
-        <h1>02. 横向滚动 - 一次轮播一张</h1>
+        <h1>02. 横向滚动 - 一次轮播一张（不过最后一张会有点小bug）</h1>
+        <p>css 的 scroll-behavior: smooth; 可以开启平滑滚动</p>
+        <p>ele.getBoundingClientRect() 方法 获取元素ele的几何信息，精确到了小数点， 而 ele.clientWidth  offsetWidth这些只能获取整数</p>
+        <p>getComputedStyle(ele).gap 方法可以获取 flex 布局的 gap 值，不过需要转化一下</p>
       </pre>
 
       <div class="scroll-box">
@@ -98,5 +102,22 @@
       const cloneItem = item.cloneNode(true)
       document.querySelector('.scroll-list').appendChild(cloneItem)
     }
+
+    // 点击左右箭头，轮播一张图片
+    const leftArrow = document.querySelector('.left-arrow')
+    const rightArrow = document.querySelector('.right-arrow')
+    const scrollList = document.querySelector('.scroll-list')
+    const scrollItem = document.querySelector('.scroll-item')
+    const itemRect = scrollItem.getBoundingClientRect()
+    const itemWidth = itemRect.width
+    const gap = parseFloat(getComputedStyle(scrollList).gap)
+    const scrollListWidth = scrollList.offsetWidth
+
+    leftArrow.addEventListener('click', () => {
+      scrollList.scrollLeft -= itemWidth + gap
+    })
+    rightArrow.addEventListener('click', () => {
+      scrollList.scrollLeft += itemWidth + gap
+    })
   </script>
 </html>
