@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/ico" sizes="32x32" href="./assets/xiao.ico" />
     <title>Document</title>
     <style>
       div {
@@ -15,7 +16,6 @@
   <body>
     <button>click me</button>
     <span>虽然这里变更了div 的内容，但页面并没有立即变化，因为【渲染】也是一个任务，会被放到【消息队列】中等待js代码执行完毕，才处理</span>
-
     <div>I will change after 3000ms</div>
   </body>
   <script>
