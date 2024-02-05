@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/ico" sizes="32x32" href="./assets/xiao.ico" />
+    <link rel="stylesheet" href="./assets/base.css" />
     <title>Document</title>
-    <link rel="stylesheet" href="../../assets/css/base.css" />
     <style>
       :root {
         --gap: 10px;
@@ -21,6 +22,7 @@
         width: 50%;
         margin: 0 auto;
         border: 1px solid #000;
+        scroll-snap-type: x mandatory;
       }
 
       /* 左右箭头 */
@@ -34,8 +36,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 30px;
+        font-size: 18px;
         cursor: pointer;
+        user-select: none;
       }
       .left-arrow {
         left: 0;
@@ -77,10 +80,10 @@
   <body>
     <div class="main">
       <pre>
-        <h1>02. 横向滚动 - 一次轮播一张（不过最后一张会有点小bug）</h1>
+        <h1>02. 横向滚动 - 一次轮播一张（不过宽度有小数点，会导致滑动不精准）</h1>
         <p>css 的 scroll-behavior: smooth; 可以开启平滑滚动</p>
-        <p>ele.getBoundingClientRect() 方法 获取元素ele的几何信息，精确到了小数点， 而 ele.clientWidth  offsetWidth这些只能获取整数</p>
-        <p>getComputedStyle(ele).gap 方法可以获取 flex 布局的 gap 值，不过需要转化一下</p>
+        <p>ele.getBoundingClientRect() 方法 可精确到小数点， 而 ele.clientWidth  offsetWidth只能获取整数</p>
+        <p>getComputedStyle(ele).gap 方法可以获取 flex 布局的 gap 值，不过带单位</p>
       </pre>
 
       <div class="scroll-box">
@@ -96,28 +99,35 @@
   </body>
 
   <script>
-    // 复制9份
-    const item = document.querySelector('.scroll-item')
-    for (let i = 0; i < 9; i++) {
-      const cloneItem = item.cloneNode(true)
-      document.querySelector('.scroll-list').appendChild(cloneItem)
+    const doms = {
+      scrollList: document.querySelector('.scroll-list'),
+      scrollItem: document.querySelector('.scroll-item'),
+      leftArrow: document.querySelector('.left-arrow'),
+      rightArrow: document.querySelector('.right-arrow')
     }
 
-    // 点击左右箭头，轮播一张图片
-    const leftArrow = document.querySelector('.left-arrow')
-    const rightArrow = document.querySelector('.right-arrow')
-    const scrollList = document.querySelector('.scroll-list')
-    const scrollItem = document.querySelector('.scroll-item')
-    const itemRect = scrollItem.getBoundingClientRect()
-    const itemWidth = itemRect.width
-    const gap = parseFloat(getComputedStyle(scrollList).gap)
-    const scrollListWidth = scrollList.offsetWidth
+    // 复制9份
+    const frags = document.createDocumentFragment()
+    for (let i = 0; i < 9; i++) {
+      const cloneItem = doms.scrollItem.cloneNode(true)
+      frags.append(cloneItem)
+    }
+    // console.dir(frags)
+    doms.scrollList.append(frags)
 
-    leftArrow.addEventListener('click', () => {
-      scrollList.scrollLeft -= itemWidth + gap
-    })
-    rightArrow.addEventListener('click', () => {
-      scrollList.scrollLeft += itemWidth + gap
-    })
+    // 点击左右箭头，轮播一张图片
+    const itemRect = doms.scrollItem.getBoundingClientRect()
+    console.log('itemRect :>> ', itemRect)
+    const listGap = parseFloat(getComputedStyle(doms.scrollList).gap)
+
+    doms.leftArrow.addEventListener('click', setLeftOffset)
+    doms.rightArrow.addEventListener('click', setRightOffset)
+
+    function setRightOffset() {
+      doms.scrollList.scrollLeft += itemRect.width + listGap
+    }
+    function setLeftOffset() {
+      doms.scrollList.scrollLeft -= itemRect.width + listGap
+    }
   </script>
 </html>
