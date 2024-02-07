@@ -17,6 +17,9 @@
         justify-content: center;
         flex-direction: column;
       }
+      .main > div {
+        width: 100%;
+      }
       .scroll-box {
         position: relative;
         width: 50%;
@@ -55,14 +58,14 @@
   </head>
   <body>
     <div class="main">
-      <pre>
+      <div>
         <h1>01. 自适应的 图片横向滚动列表</h1>
-        <p> 实现滚动：            通过设置父元素的 width: 100% + overflow: scroll; </p>
-        <p> 消除间隙：            vertical-align: bottom; 因为图片默认底部对齐于 【基线】</p>
-        <p> 去除滚动条：          ::-webkit-scrollbar { display: none; } </p>
-        <p> 一行显示：            display: inline-flex; </p>
-        <p>防止 item项 被挤压:    flex-shrink: 0; </p>
-      </pre>
+        <p>实现滚动： 通过设置父元素的 width: 100% + overflow: scroll;</p>
+        <p>消除间隙： vertical-align: bottom; 因为图片默认底部对齐于 【基线】</p>
+        <p>去除滚动条： ::-webkit-scrollbar { display: none; }</p>
+        <p>一行显示： display: inline-flex;</p>
+        <p>防止 item项 被挤压: flex-shrink: 0;</p>
+      </div>
 
       <div class="scroll-box">
         <div class="scroll-list">

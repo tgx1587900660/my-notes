@@ -17,6 +17,9 @@
         justify-content: center;
         flex-direction: column;
       }
+      .main > div {
+        width: 100%;
+      }
       .scroll-box {
         position: relative;
         width: 50%;
@@ -79,12 +82,12 @@
   </head>
   <body>
     <div class="main">
-      <pre>
+      <div>
         <h1>02. 横向滚动 - 一次轮播一张（不过宽度有小数点，会导致滑动不精准）</h1>
         <p>css 的 scroll-behavior: smooth; 可以开启平滑滚动</p>
-        <p>ele.getBoundingClientRect() 方法 可精确到小数点， 而 ele.clientWidth  offsetWidth只能获取整数</p>
+        <p>ele.getBoundingClientRect() 方法 可精确到小数点， 而 ele.clientWidth offsetWidth只能获取整数</p>
         <p>getComputedStyle(ele).gap 方法可以获取 flex 布局的 gap 值，不过带单位</p>
-      </pre>
+      </div>
 
       <div class="scroll-box">
         <div class="scroll-list">
