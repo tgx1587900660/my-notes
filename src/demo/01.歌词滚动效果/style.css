@@ -12,14 +12,15 @@ body {
   text-align: center;
 }
 audio {
-  width: 450px;
-  margin: 30px auto;
+  max-width: 450px;
+  margin: 20px auto;
 }
 
 .container {
   height: 420px;
   max-width: 1200px;
   margin: 20px auto;
+  padding: 0 10px;
   border: 2px solid #fff;
   overflow: hidden;
   /* overflow-y: scroll; */
