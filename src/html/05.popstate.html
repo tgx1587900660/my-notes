@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05.popstate 事件</title>
+  </head>
+  <body>
+    <button>button</button>
+    <a href="#">alink</a>
+
+    <script>
+      const btn = document.querySelector('button')
+      btn.addEventListener('click', () => {
+        history.pushState({ page: 1 }, '', 'http://127.0.0.1:5500/src/html/05.popstate.html?a=这个页面会触发popstate事件')
+      })
+
+      window.addEventListener('popstate', e => {
+        console.log('e :>> ', e)
+
+        // if (window.confirm('确认返回？')) {
+        //   history.back()
+        // }
+      })
+    </script>
+  </body>
+</html>
