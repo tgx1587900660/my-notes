@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a {
+        display: inline-flex;
+      }
+      pre {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+
+  <body>
+    <pre>
+      figure 元素用于对元素进行分组，通常用于对图表、照片、插图、代码等进行分组。figure 元素的内容应该与主内容相关，但如果被删除，它不应该对文档流产生影响。
+      figcaption 元素用于为 figure 元素定义标题（caption）。
+      map 元素用于定义客户端图像映射。客户端图像映射是一种在图像上定义可点击区域的方法。这些区域被称为热点，当用户点击热点时，将执行与之相关的操作。
+      area 元素用于定义图像映射中的可点击区域。可点击区域可以是矩形、圆形或多边形。
+    </pre>
+
+    <figure>
+      <a href="../../index.html" target="_blank">
+        <img usemap="#my-img" src="https://picsum.photos/id/237/500" alt="dog" />
+      </a>
+      <figcaption>
+        <h2>dog</h2>
+      </figcaption>
+      <p>a black dog</p>
+    </figure>
+
+    <map name="my-img">
+      <!-- 圆形 -->
+      <area shape="circle" coords="250,210,20" href="#左眼" alt="左眼" target="_blank" />
+      <!-- 矩形 -->
+      <area shape="rect" coords="290,300,360,346" href="#鼻子" alt="鼻子" target="_blank" />
+      <!-- 多边形 -->
+      <area shape="poly" coords="171,414,204,479,264,483,270,394" href="#腿" alt="腿" target="_blank" />
+    </map>
+  </body>
+</html>
