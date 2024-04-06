@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 2000px;
+        overflow: auto;
+      }
+      .one {
+        width: 800px;
+        height: 500px;
+        border: 2px solid red;
+        padding: 10px;
+      }
+      .two {
+        position: relative;
+        width: 400px;
+        height: 300px;
+        border: 2px solid blue;
+        padding: 20px;
+      }
+      .three {
+        width: 200px;
+        height: 100px;
+        border: 2px solid green;
+        position: absolute;
+        background-color: pink;
+        margin: auto;
+      }
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .modal-content {
+        width: 500px;
+        height: 500px;
+        border: 2px solid green;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: #fff;
+      }
+      .modal-content div:first-of-type {
+        color: red;
+      }
+
+      .modal-content div:nth-child(3) {
+        color: greenyellow;
+      }
+      .modal-content div:nth-of-type(3) {
+        color: pink;
+      }
+
+      .modal-content div:nth-of-type(3)::first-letter {
+        color: deeppink;
+        font-size: 20px;
+      }
+
+      .modal-content div.sibling::first-line {
+        color: #ccc;
+        font-size: 20px;
+      }
+
+      .modal-content div:last-of-type::selection {
+        color: aqua;
+        background-color: red;
+      }
+      .sibling + div {
+        color: blue;
+      }
+
+      .sibling ~ div {
+        background-color: aquamarine;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="one">
+      <div class="two">
+        <div class="three">123</div>
+      </div>
+    </div>
+    <div class="modal">
+      <div class="modal-content">
+        <p>123</p>
+        <div href="">Lorem, ipsum dolor.</div>
+        <span>123</span>
+        <div href="">Aut, culpa mollitia.</div>
+        <div href="">Perferendis, non. Ad.</div>
+        <div href="">A, adipisci! Nisi!</div>
+        <div class="sibling">Odio, ex aperiam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse fugit aperiam porro atque enim nostrum laudantium, maxime hic explicabo praesentium expedita eaque dolores inventore necessitatibus voluptatum sint delectus illo quibusdam!</div>
+        <div>Lorem ipsum dolor sit.</div>
+        <div>Cupiditate reprehenderit molestiae nulla.</div>
+        <div>Molestias voluptatum dignissimos ab?</div>
+      </div>
+    </div>
+  </body>
+</html>
