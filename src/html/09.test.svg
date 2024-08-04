@@ -1,0 +1,5 @@
+<svg width="500" height="500" style="background:#ccc;" xmlns="http://www.w3.org/2000/svg">
+  <!-- 使用path画椭圆的一部分 -->
+  <path d="M130 130 A160 110 0 1 1 300 300" stroke="red" stroke-width="1" fill="skyblue" />
+
+</svg>
