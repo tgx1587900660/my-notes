@@ -1,3 +1,0 @@
-# mac 和 linux 下面的 git 默认是 LF，在 windows 下面提交代码时，会把 LF 转换成 CRLF，这样会导致代码冲突，
-# 添加这个文件，可以防止 git 自动转换
-* -text

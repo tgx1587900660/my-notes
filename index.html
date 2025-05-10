@@ -7,43 +7,40 @@
     <meta name="description" content="唐干宵 的demo, telectron 的demo, 谭竿霄 的demo" />
     <link rel="icon" type="image/ico" sizes="32x32" href="./public/xiao.ico" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ant-design-vue@3.2.20/dist/antd.min.css" />
-    <link rel="stylesheet" href="./index.css" />
     <title>tgx 的导航</title>
   </head>
 
   <body>
-    <div id="app">
-      <div class="container">
-        <h2>tgx 的导航</h2>
-        <div class="link-wrapper">
-          <div class="left">
-            <h2>html-test</h2>
-            <a href="./src/html/01.乱数假文lorem.html">01.乱数假文lorem</a>
-            <a href="./src/html/02.js为什么会阻塞渲染.html">02.js为什么会阻塞渲染</a>
-            <a href="./src/html/03.横向滚动列表.html">03.横向滚动列表</a>
-            <a href="./src/html/04.横向滚动列表-点击轮播.html">04.横向滚动列表-点击轮播</a>
-            <a href="./src/html/05.图片的区域跳转.html">05.图片的区域跳转</a>
-            <a href="./src/html/06.模态框-静态网页.html">06.模态框-静态网页</a>
-            <a href="./src/html/07.iframe-配合a链接target.html">07.iframe-配合a链接target</a>
-            <a href="./src/html/08.表单元素.html">08.表单元素</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- <script src="index.js"></script> -->
-    <!-- <script>
+    <div id="app"></div>
+    <script src="index.js"></script>
+    <script>
+      const btn = {
+        template: '<a-button type="primary" @click="handleClick">click me</a-button>',
+        setup() {
+          const handleClick = () => {
+            alert('请按 F12 查看控制台');
+            console.log('click');
+          };
+          return { handleClick };
+        },
+      };
+
       function createVueApp() {
-        const { createApp } = window.Vue
+        const { createApp } = window.Vue;
         const app = createApp({
           setup() {
-            const message = 'Hello Vue 3!'
+            const message = 'Hello Vue 3! 这是一个没有使用工程化的 vue3 + ant-design-vue 的 demo';
             return {
-              message
-            }
-          }
-        })
-        app.use(antd).mount('#app')
+              message,
+            };
+          },
+          components: {
+            btn,
+          },
+          template: '<div style="font-size: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; width: 100vw;">{{ message }}<btn /></div>',
+        });
+        app.use(antd).mount('#app');
       }
-    </script> -->
+    </script>
   </body>
 </html>
