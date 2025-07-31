@@ -1,29 +1,29 @@
-# Simple workflow for deploying static content to GitHub Pages
+# 部署 index.html 页到 GitHub Pages
 name: index.html 页部署工作流
 
 on:
-  # Runs on pushes targeting the default branch
+  # 当 main 分支有 push 时，触发工作流
   push:
     branches:
       - main
 
-  # Allows you to run this workflow manually from the Actions tab
+  # 允许手动触发工作流
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# 设置 GITHUB_TOKEN 的权限，允许部署到 GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# 允许只有一个并发部署，跳过在运行中的部署和最新的部署之间的排队
+# 但是，不要取消正在进行的部署，因为我们要允许这些生产部署完成
 concurrency:
   group: 'pages'
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
+  # 单个部署作业，因为我们只是部署
   deploy:
     environment:
       name: github-pages
@@ -37,7 +37,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
+          # 上传整个仓库
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment

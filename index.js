@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
     .then((res) => {
       // console.log('res :>> ', res)
       console.log('%c ⭐all resources loaded⭐', 'color: #000; background-color: pink; padding: 6px;border-radius: 4px;');
-      console.log('叫你看就看啊');
+      console.log('叫你看就看啊 -_-"');
       createVueApp();
     })
     .catch((err) => {
